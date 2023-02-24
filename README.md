@@ -1,7 +1,8 @@
 # Go
 
 This is a place to learn GoLang fundamentals and concepts using Mardown in Jupyter Notebook. Inside `src` you will find
-all my notes.
+all my notes merged with runnable code. Inside `code` you will find real world code — concepts that Notebooks don't
+allow me to practice.
 
 ## Usage
 
