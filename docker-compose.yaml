@@ -1,0 +1,10 @@
+version: '3'
+services:
+  jupyter-go:
+    image: gopherdata/gophernotes:latest-ds
+    ports:
+      - "8888:8888"
+    volumes:
+      - "./src:/src"
+    stdin_open: true
+    tty: true
