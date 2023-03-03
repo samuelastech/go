@@ -5,8 +5,6 @@ import (
 	"net/http"
 )
 
-var linksDown int = 0
-
 func main() {
 	links := []string{
 		"https://google.com",
@@ -23,12 +21,8 @@ func main() {
 		go check(link, c)
 	}
 
-	for i := 0; i < len(links); i++ {
-		<-c
-	}
-
-	if linksDown == 0 {
-		fmt.Println("All links are up!")
+	for link := range c {
+		go check(link, c)
 	}
 }
 
@@ -38,7 +32,6 @@ func check(link string, channel chan string) {
 	if error != nil {
 		fmt.Println(link, "might be down")
 		channel <- link
-		linksDown++
 		return
 	}
 
